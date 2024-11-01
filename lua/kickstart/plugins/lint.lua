@@ -2,12 +2,20 @@ return {
 
   { -- Linting
     'mfussenegger/nvim-lint',
+
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
       }
+  local markdownlint = require('lint').linters.markdownlint
+  markdownlint.args = {
+    '--disable',
+    'MD013',
+    'MD007',
+    '--', -- Required
+  }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:

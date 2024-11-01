@@ -40,7 +40,8 @@ return {
     event = 'VeryLazy',
     version = '2.*',
     config = function()
-        require'window-picker'.setup()
+  require('window-picker').setup ()
+  
     end,
 }
 }
